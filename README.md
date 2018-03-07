@@ -34,6 +34,17 @@ var name = '定义一个变量，此处为高亮';
 
 ```javascript
 var name = '此处 ``` 后面加了javascript，可以看到var变颜色';
+class BaseClass{
+    //构造方法, 类的默认方法
+    constructor(x, y){
+        this.x = x;
+        this.y = y;
+    }
+    toString(){
+        console.log(this);
+        return this.x + "，" + this.y;   
+    }
+} 
 ```
 
 ```css
