@@ -1,28 +1,22 @@
 //1. 函数和匿名函数
-
 var a = [];
 for (var i = 0; i < 10; i++) {
     a[i] = function () {
         console.log(i);
     };
 }
-
 a[6](); // 10
 
 
 /**
  * 2. 作用域，局部和全局作用域
- * 
- * 
  * */ 
 function Fun(val){
-
     // 私有属性
     val = 1;        // 私有基本属性
     var arr = [1];      // 私有引用属性
     function fun(){}    // 私有函数（引用属性）
     
-
     // 实例属性
     this.val = val;               // 实例基本属性
     this.arr = [1];             // 实例引用属性
@@ -30,8 +24,6 @@ function Fun(val){
 
     console.log(this.val);  
 }
-
-
 var a1 = new Fun("3");
 
 
@@ -60,7 +52,9 @@ var fun4 = fun3();
 console.log(fun4()); //12
 console.log(fun4()); //48
 
-//5. 主函数
+
+//5. 回调函数 
+//主函数
 function main1(callback){
     var num = 40;
     if(callback && typeof callback==="function"){
@@ -72,8 +66,35 @@ function callFun(num){
     console.log(num);
 }
 main1(callFun);
+// 测试回调函数
 
+function b1(con,callback){
+    $.ajax({
+        url:"http://m.ly.com/Healthy/api/HomeApi/Slideshow",
+        dataType:"json",
+        success:function(res){
+            console.log("b1数据",res,con);
+            if(typeof callback =="function"){
+                callback && callback.call();
+            }
+        }
+    });
 
+}
+
+function ccc(){
+    var con={name:"获取"};
+    b1(con,function(data){
+        $.ajax({
+            url:"http://m.ly.com/Healthy/api/HomeApi/NewsList",
+            dataType:"json",
+            success:function(res1){
+                console.log("回到函数数据",res1,data);
+            }
+        })
+    })
+}
+// console.log(ccc());
 
 // 6. 多层作用域
 function ff (n,m){
@@ -100,6 +121,8 @@ var res = arr.filter(function(item,index,array){
 });
 console.log(res);
 //[3]
+
+
 
 
 //8 .创建对象的7种方式
@@ -201,5 +224,4 @@ function  personA(name,age,sex){
 }   
 
 var person1 =  new personA("lily","34","女");
-
 //主要是用到new关键字

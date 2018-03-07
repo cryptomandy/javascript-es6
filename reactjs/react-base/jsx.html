@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="">
+        .box{
+            font-size: 28/24rem;
+        }
+    </style>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+	<script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+	<script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+</head>
+<body>
+    <div id="jsxBox"></div>
+
+    <div class="component_Box">
+        <div id="comA"></div>
+        <div id="comB"></div>
+    </div>
+
+    <div id="clockCount"></div>
+    <div id="clockCount2"></div>
+
+
+</body>
+<script type="text/babel">
+    // 1.  jsx基本语法
+    let i = 1;
+    let titClass = {
+        fontSize: 20,
+        color: '#FF0000'
+    };
+    const contA = (
+        <div class="box">
+            <h3>1. jsx的语法 </h3>
+            <p>内联样式赋值时，不用引号注意</p>
+            <div>标签内注释一般使用花括号加注释内容 {i==1 ? "不能用if-else":""}</div>
+        </div>
+    );
+    ReactDOM.render(
+        /* 此处只能有一个变量模板 */ 
+        contA,  
+        /* 标签外注释 注意结束语部分不能有标点符号*/
+        document.getElementById("jsxBox")  
+    );
+
+    // 2. 组件使用
+    function SayName(props) {
+        return (
+            props.istile ? <p>{props.name}</p> : <h3>2. 组件使用{props.name}</h3> 
+        )
+    }
+    const obj = {
+        name: "lucy",
+        sex: 29
+    };
+    const objA = <SayName name="lucy" />;
+    // const objA = <SayName name="lucy"></SayName>;
+    // ReactDOM.render(
+    //     <div>
+    //         {SayName(obj)}
+    //         <p>使用构造函数定义组价</p>
+    //     </div>,
+    //     document.getElementById("componentBox")
+    // );
+    ReactDOM.render(
+        objA,
+        document.getElementById("comA")
+    );
+
+
+    // 3. 组件使用三 ,组合组件
+    function AppA() {
+        return(
+            <div>
+                <h3>3. 组合组件</h3>
+                <p>组件注意要在外包裹一个根元素标签</p>
+                <SayName name="lily" istile="true" />
+                <SayName name="Jane" istile="true" />
+                <SayName name="Jhon" istile="true" />
+            </div>
+        )
+    }
+
+    ReactDOM.render(
+        <AppA />,
+        document.getElementById("comB")
+    )
+
+    // 4. 组件的封装和使用
+    // 4.1. 构造函数定义组件
+    function tick() {
+        const elment = (
+            <div>
+                <h2>现在时间： {new Date().toLocaleTimeString()}</h2>
+            </div>
+        );
+        // ReactDOM.render(
+        //     elment,
+        //     document.getElementById("clockCount")
+        // );
+    }
+    setInterval(function() {
+        tick();
+    },2000)
+
+    // 4.2  倒计时组件实现  类定义组件
+
+
+    class Clock extends React.Component{
+        constructor(props){   //构造函数中初始化状态值
+            super(props); //继承
+            
+            this.state = {
+                date: new Date()
+            };
+        }
+
+        // 挂载 componentDidMount  componentWillUnmount
+        componentDidMount(){  
+            this.timer = setInterval(
+                () => this.tick(),
+                1000
+            );
+        }
+        
+        // 卸载
+        componentWillUnmount(){
+            clearInterval(this.timer);
+        }
+        // 改变date值，不能直接改变，需要用setState
+        tick(){
+            this.setState({
+                date: new Date()
+            });
+        }
+        render(){
+            return(
+                <div>
+                    <h2>现在时间（类）： {this.state.date.toLocaleTimeString()}</h2>
+                </div>
+            )
+        }
+    }
+    // 渲染组件渲染组件
+    ReactDOM.render(
+        <Clock />,
+        document.getElementById("clockCount2")
+    );
+
+</script>
+</html>
+
+
+
