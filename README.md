@@ -49,7 +49,11 @@ tab键
 <br>
 > 一个\>使用： 用脚本进行DOM操作的代价很昂贵。有个贴切的比喻，把DOM和JavaScript各自想象为一个岛屿，它们之间用收费桥梁连接，js每次访问DOM，都要途径这座桥，并交纳“过桥费”,访问DOM的次数越多，费用也就越高。
 
+加载资源
+---
+加超链接：加中括号，中括号中可以为描述，小括号为地址, eg: \[](), 
+[baidu](http://baidu.com)  
 
-[baidu](http://baidu.com)  
-![baidu](http://www.baidu.com/img/bdlogo.gif)
+加图片：同加超链接，在最前面加！，eg：\![]()
+![baidu](http://www.baidu.com/img/bdlogo.gif)   
 
