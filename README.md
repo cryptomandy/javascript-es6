@@ -62,6 +62,8 @@ var name = '此处 ``` 后面加了javascript，可以看到var变颜色';
 
 
 ### 测试缩进
+```
+·
 ├── config
 |—— src
 │  ├── assets
@@ -71,4 +73,6 @@ var name = '此处 ``` 后面加了javascript，可以看到var变颜色';
 │   ├── page
 │   ├── style
 ├── index
+·
+```
 
