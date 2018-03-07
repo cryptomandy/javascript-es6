@@ -60,3 +60,16 @@ var name = '此处 ``` 后面加了javascript，可以看到var变颜色';
 加图片：同加超链接，在最前面加！，eg：\!\[baidu](http://www.baidu.com/img/bdlogo.gif)  
 ![baidu](http://www.baidu.com/img/bdlogo.gif)   
 
+
+### 测试缩进
+|—— bulid
+|—— config
+|—— src
+|   |—— assets
+|   |—— components
+|   |   |—— index
+|   |   |—— list
+|   |—— page
+|   |—— style
+|—— index
+
