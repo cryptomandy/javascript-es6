@@ -25,7 +25,7 @@ var name = '定义一个变量，此处为高亮';
 <br>
 
 ```javascript
-var name = '"```"后面加了javascript，可以看到var变颜色';
+var name = '```后面加了javascript，可以看到var变颜色';
 ```
 
 
