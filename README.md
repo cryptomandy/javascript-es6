@@ -64,11 +64,11 @@ var name = '此处 ``` 后面加了javascript，可以看到var变颜色';
 ### 测试缩进
 ├── config
 |—— src
-|   ├── assets
-|   ├── components
-|   |   ├── index
-|   |   ├──list
-|   ├── page
-|   ├── style
+│  ├── assets
+│   ├── components
+│   │   ├── index
+│   │   ├──list
+│   ├── page
+│   ├── style
 ├── index
 
