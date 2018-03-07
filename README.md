@@ -75,3 +75,10 @@ var name = '此处 ``` 后面加了javascript，可以看到var变颜色';
 
 ```
 
+```
+|—— config
+|—— src
+|   |—— components
+|   |—— page
+|—— index
+```
