@@ -51,7 +51,7 @@ tab键
 
 加载资源
 ---
-加超链接：加中括号，中括号中可以为描述，小括号为地址, eg: \[](), 
+加超链接：加中括号，中括号中可以为描述，小括号为地址, eg: \[baidu](http://baidu.com), 
 [baidu](http://baidu.com)  
 
 加图片：同加超链接，在最前面加！，eg：\!\[baidu](http://www.baidu.com/img/bdlogo.gif)  
