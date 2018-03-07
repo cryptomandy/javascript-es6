@@ -31,30 +31,6 @@ console.log(c instanceof SuperFun1);
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // 测试回调函数
 
 function b1(con,callback){
@@ -134,6 +110,3 @@ for (var i = 0; i < arr.length; i++) {
     i==len-1 ? (strArr += arr[i]) : (strArr += arr[i] + " ");
 };
 console.log(strArr);
-
-
-"AB0016FF5120110C121000000D00000000000000"
