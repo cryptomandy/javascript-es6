@@ -2,144 +2,82 @@
  * @description es6 类基础
  * */ 
 
-//1. 类的写法
-const BaseClassA = class baseA  {
-    //Class表达式，baseA 只能在BaseClassA [内部使用]，指代 [当前类] ；
+//1. 类的写法，表达式，静态方法，继承
+// class Aaa{  
+const Aaa = class baseA  {    
+    //Class表达式，baseA 只能在Aaa [内部使用]，指代 [当前类] ；
 
     //构造方法, 类的默认方法
-    constructor(x, y){
+    constructor(x,conf){
+        console.log(this,"this在constructor");
         this.x = x;
-        this.y = y;
     }
+
+    static setName(){
+        console.log("静态方法");    
+    }
+
     toString(){
         console.log(this,"this指向");
-        return this.x + "，" + this.y;   
+        return this.x;   
+    }
+    //测试引用类型值
+    getParams(conf){
+        //内部方法；
+        return TestSetParam.call(this,conf);
     }
 }   
-console.log(BaseClassA === BaseClassA.prototype.constructor,"类本身就指向构造函数") //true
+
+console.log(Aaa === Aaa.prototype.constructor,"类本身就指向构造函数") //true
 
 //类的实例对象
-var food = new BaseClassA("1","mandy");
-console.log(food.toString());      // (1，mandy) 
+let testA = new Aaa("111");
+console.log(testA.toString());      // (1，mandy) 
 
-// 如果将BaseClassA内部的this => baseA  则food.hasOwnProperty('y') 为false；
-console.log(food.hasOwnProperty('y'),"x和y都是实例对象food自身的属性（因为定义在this变量上）")  //true 
+// 如果将Aaa内部的this => baseA  则testA.hasOwnProperty('y') 为false；
+console.log(testA.hasOwnProperty('x'),"x是实例对象testA自身的属性（因为定义在this变量上）")  //true 
 
-
-// 2. 类的私有方法
-
-
-
-
+//访问类的静态方法  类的静态方法只能通过访问类访问到，实例不可以； 静态方法包含this关键字，这个this指的是类，而不是实例。
+//console.log(testA.setName());  //报错
+console.log(Aaa.setName());
+console.log("--- --- 华丽丽的分割线 基础语法 --- ---");
 
 
+function TestSetParam(param){
+    let p1 = {};
+    p1.id = 1;
+    p1.classVal = "icon_" + p1.id;
+    return Object.assign(p1,param);
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-class SetOrder{
-    //构造方法
-    constructor(x, y){
-        this.x = x;
+// class继承
+class childA extends Aaa{
+    constructor(x,y){
+        super(x);
         this.y = y;
     }
     toString(){
-        return this.x + "属性" + this.y;
+        this.x = "333";
+        // return this.x + ":" + this.y + "，" +  this.z;
+        return super.toString() + "," +  this.y; //可以使用super()调用父类的方法
     }
+
 }
+let testChildA = new childA("222","lucy");
+console.log(testChildA.toString());
 
-class orderDetail extends SetOrder{
-    constructor (x, y, name){
-        super(x, y);
-        /**
-         * @description super 含义 : 1. 作为函数时 SetOrder.prototype.constructor.call(this)。
-         * super代表的是setOrdr的构造函数，指向的是orderDetail的实例；
-         * */ 
-        //console.log(Object.getPrototypeOf(orderDetail) == SetOrder,"返回true",this);
-        this.name = name;
-        /**
-         * @description super含义： 2. 作为对象时，在普通方法中，指向父级的原型对象；在静态方法中，指向父类。 
-         * super指向父类的原型对象时，定义在父类实例上的方法或属性，是无法通过super调用的
-         * */
-    }
-    
-    toString(){
-        return this.name + " " + super.toString();  //调用构造函数的方法
-    }
-}
-// test 
-let c1 = new orderDetail("1","2","mandy");
-//console.log(c1.toString());
+//改变属性值
+testChildA.x = "444"; //外部改变子类x值，不影响其他实例
+console.log(testA.x, "父类实例");
+console.log(testChildA.x, "子类实例");
+//改变引用类型值
+console.log(testChildA.getParams({
+    "id":2
+}));
+console.log(testA.getParams({}));
 
-// &&& 
-class A{
-    constructor(){
-        this.a =  1;
-    }
-    p(){
-        return 2 ;  
-    }
-}
-
-class B extends A{
-    constructor(){
-        super();
-        console.log(this);
-        this.a = "a";
-        this.b = "b"
-    }
-}
-
-//子类的super指向的是子类
-// var b1 = new B();
-// console.log(b1.a,b1.b);
-
-class AAA {
-    constructor() {
-      this.x = 1;
-    }
-    print() {
-      //console.log(this.x,"原型");
-    }
-  }
-  
-class BBB extends AAA {
-    constructor() {
-      super();
-      this.x = 2;
-
-      
-      super.x = 3;
-      //console.log(super.x,"super");  //***由于this指向子类，所以如果果果通过super对某个属性赋值，这时super就是this，赋值的属性会变成子类实例的属性。
-      //console.log(this.x,"this");  //***
-    }
-    m() {
-      super.print();
-      //console.log(super.x,"AAA prototype");//super 调取的是AAA的实例，如果x是在原型上写的，可以访问
-    }
-}
-
-let b3 = new BBB();
-//console.log(b3.m()); //super.print.call(this)
-
-
-
-
+console.log("--- --- 华丽丽的分割线 继承 --- ---");
+console.log("--- --- a --- ---");
 
 
 

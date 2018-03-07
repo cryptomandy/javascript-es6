@@ -1,4 +1,4 @@
-### 整理列表功能
+### 项目功能
 ```
 ├── es6 
 ├── javascipt
@@ -8,6 +8,12 @@
 
 ```
 
-### TODO列表
--  __proto__ 和 prototype
+# 添加时间
+** 2018-03-07 class类基础语法 **
 
+** 2018-03-08 Generator 基础语法 ** 
+
+### TODO列表
+- \__proto\__ 和 prototype // 2018-03-07
+- symbol
+- proxy
