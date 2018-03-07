@@ -50,6 +50,6 @@ tab键
 > 一个\>使用： 用脚本进行DOM操作的代价很昂贵。有个贴切的比喻，把DOM和JavaScript各自想象为一个岛屿，它们之间用收费桥梁连接，js每次访问DOM，都要途径这座桥，并交纳“过桥费”,访问DOM的次数越多，费用也就越高。
 
 
-![baidu](http://baidu.com)  
-![baidu]:http://www.baidu.com/img/bdlogo.gif "百度Logo"  
+[baidu](http://baidu.com)  
+![baidu](http://www.baidu.com/img/bdlogo.gif)
 
