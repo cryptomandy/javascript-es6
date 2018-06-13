@@ -1,3 +1,4 @@
+console.log("-----------排序测试-----------")
 /**
  * @name 排序测试
  * @description 生成大量测试数据，测试排序时间，深入理解常用排序
@@ -8,7 +9,7 @@
  // https://www.cnblogs.com/Unknw/p/6346681.html
 
 var totalCount = 0,  //总的循环次数
-    sortCount = 15,  //总测试数据条数
+    sortCount = 80,  //总测试数据条数
     baseData = [],// 测试数据
     testPreTime = 0; // 测试前时间
 /**
@@ -86,11 +87,11 @@ function BubbleSort2(data){
     return data;
 }
 testPreTime=  getTime(); //测试前时间
-//console.log(totalCount, BubbleSort1(BaseData()),"冒泡一");  
+//console.log(totalCount, BubbleSort1(baseData),"冒泡一");  
 //console.log(getTime() - testPreTime,"时间差值ms");
 
 testPreTime=  getTime(); //测试前时间
-//console.log(totalCount, BubbleSort2(BaseData()),"冒泡二");  
+//console.log(totalCount, BubbleSort2(baseData),"冒泡二");  
 //console.log(getTime() - testPreTime,"时间差值ms");
 
 
@@ -120,41 +121,50 @@ function SelectSort(data){
     return data;  
 }
 testPreTime=  getTime(); //测试前时间
-//console.log(totalCount, SelectSort(BaseData()),"选择");
+//console.log(totalCount, SelectSort(baseData),"选择");
 //console.log(getTime() - testPreTime,"时间差值ms");  
 
 
 /**
  * @name 插入排序
- * @description 
+ * @description  不太懂？？？
 */
 function InsertSort(data){
-    
+    var preIndex = 0,
+        current;
+    for (var i = 1; i < data.length; i++) {
+        key = data[i];
+        preIndex = i - 1;
+        while(data[preIndex] > key && preIndex > -1){
+            //console.log(preIndex,i);
+            data[preIndex+1] = data[preIndex];  
+            preIndex--;    
+        }
+        data[preIndex+1] = key;
+    }
+    return data;
 }
 
 /**
  * @name 拆半插入排序
  * @description 
 */
-function InsertSort(){
+function HalfInsertSort(){
     
 }
 testPreTime=  getTime(); //测试前时间
-console.log(totalCount, QuickSort(BaseData()),"插入排序");
+console.log(totalCount, InsertSort(baseData),"插入排序");
 console.log(getTime() - testPreTime,"时间差值ms");  
 
 // testPreTime=  getTime(); //测试前时间
-// console.log(totalCount, QuickSort(BaseData()),"拆半插入排序");
+// console.log(totalCount, QuickSort(baseData),"拆半插入排序");
 // console.log(getTime() - testPreTime,"时间差值ms");  
-
 /**
  * @name 快速排序
  * */  
 function QuickSort(){
     
 }
-
-
 
 
 
@@ -173,3 +183,4 @@ function MergeSort(){
 function getTime(){
     return new Date().getTime();
 }
+ 

@@ -1,3 +1,4 @@
+console.log("-----------原型-----------")
 /**
  * @description js继续
  * @date 2017-11-13
