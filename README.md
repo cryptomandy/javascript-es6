@@ -28,3 +28,6 @@
 第二：yguo18/CircleFollowButton/    用户名/仓库名
 第三：raw/master/     固定写法   原生管理
 第四：Assets/Image/xiaoguotu.png   仓库名下的存放图片的文件目录+图片名
+
+### 跨平台开发文档集锦
+- https://segmentfault.com/a/1190000017977116#articleHeader5
