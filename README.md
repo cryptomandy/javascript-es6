@@ -31,3 +31,16 @@
 
 ### 跨平台开发文档集锦
 - https://segmentfault.com/a/1190000017977116#articleHeader5
+
+
+工具：  代码管——git  chrome— 代码调试
+框架： 
+vue相关：vue基础，vue-router，vuex，
+
+了解node基础
+了解npm应用
+
+了解ES6语法
+了解flex布局
+
+以上是小程序中需要了解知识
