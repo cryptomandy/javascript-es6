@@ -8,30 +8,30 @@ const Aaa = class baseA {
   //Class表达式，baseA 只能在Aaa [内部使用]，指代 [当前类] ；
 
   //构造方法, 类的默认方法
-  constructor (x, conf) {
-    console.log (this, 'this在constructor');
+  constructor(x, conf) {
+    // console.log(this, 'this在constructor');
     this.x = x;
   }
 
-  static setName () {
-    console.log ('静态方法');
+  static setName() {
+    console.log('静态方法');
   }
 
-  toString () {
-    console.log (this, 'this指向');
+  toString() {
+    console.log(this, 'this指向');
     return this.x;
   }
   //测试引用类型值
-  getParams (conf) {
+  getParams(conf) {
     //内部方法；
-    return TestSetParam.call (this, conf);
+    return TestSetParam.call(this, conf);
   }
 };
 
 // console.log (Aaa === Aaa.prototype.constructor, '类本身就指向构造函数'); //true
 
 //类的实例对象
-let testA = new Aaa ('111', {});
+let testA = new Aaa('111', {});
 // console.log (testA.toString ()); // (1，mandy)
 // console.log (testA.getParams (), '测试引用');
 // // 如果将Aaa内部的this => baseA  则testA.hasOwnProperty('y') 为false；
@@ -41,11 +41,11 @@ let testA = new Aaa ('111', {});
 // //console.log(testA.setName());  //报错
 // console.log (Aaa.setName ());
 
-function TestSetParam (param) {
+function TestSetParam(param) {
   let p1 = {};
   p1.id = 1;
   p1.classVal = 'icon_' + p1.id;
-  return Object.assign (p1, param);
+  return Object.assign(p1, param);
 }
 
 // class继承
@@ -76,3 +76,42 @@ function TestSetParam (param) {
 
 // console.log("--- --- 华丽丽的分割线 继承 --- ---");
 // console.log("--- --- a --- ---");
+
+/**
+ * @name 闭包
+ * @date 2019-08-19
+ * **** */
+let x = 'bbb';
+var testClose1 = {
+  x: 'aaa',
+  getName: function() {
+    console.log(x);
+    return function() {
+      console.log(x);
+    };
+  }
+};
+console.log(testClose1.getName()(), '001');
+
+var testClose2 = {
+  x: 'aaa',
+  getName: function() {
+    console.log(x);
+    var x = 'ccc';
+    return () => {
+      console.log(x);
+    };
+  }
+};
+console.log(testClose2.getName()(), '002');
+
+var testClose3 = {
+  x: 'aaa',
+  getName: () => {
+    console.log(this.x);
+    return () => {
+      console.log(this.x);
+    };
+  }
+};
+console.log(testClose3.getName()(), '003');

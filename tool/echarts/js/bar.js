@@ -1,31 +1,28 @@
 let Index = {
   //横轴数据
-  xData: [
-    '苏州工业园区',
-    '广州',
-    '杭州',
-    '西安高新科技区',
-    '深圳',
-    '上海',
-    '南通',
-    '无锡',
-    '成都',
-    '南京'
-  ],
+  xData: ['苏州工业园区', '广州', '杭州', '西安高新科技区', '深圳'],
   yData: [
     {
       count: 12000,
       cityName: '苏州',
       rateValue: 7652,
       value: 39.86,
-      name: '苏州'
+      name: '苏州',
+      data: {
+        cityname: '苏州',
+        proname: '苏州'
+      }
     },
     {
       count: 12000,
       cityName: '广州',
       rateValue: 2049,
       value: 10.67,
-      name: '广州'
+      name: '广州',
+      data: {
+        cityname: '苏州',
+        proname: '苏州'
+      }
     },
     {
       count: 12000,
@@ -47,41 +44,6 @@ let Index = {
       rateValue: 608,
       value: 3.17,
       name: '深圳'
-    },
-    {
-      count: 12000,
-      cityName: '上海',
-      rateValue: 603,
-      value: 3.14,
-      name: '上海'
-    },
-    {
-      count: 12000,
-      cityName: '南通',
-      rateValue: 476,
-      value: 2.48,
-      name: '南通'
-    },
-    {
-      count: 12000,
-      cityName: '无锡',
-      rateValue: 436,
-      value: 2.27,
-      name: '无锡'
-    },
-    {
-      count: 12000,
-      cityName: '成都',
-      rateValue: 324,
-      value: 1.69,
-      name: '成都'
-    },
-    {
-      count: 12000,
-      cityName: '南京',
-      rateValue: 292,
-      value: 1.52,
-      name: '南京'
     }
   ],
   init() {
@@ -131,7 +93,7 @@ let Index = {
           color: '#333', //刻度颜色
           fontSize: 12, //刻度大小
           formatter: function(value) {
-            //横轴文字自定义格式化
+            //TODo: 横轴文字自定义格式化
             let result = ''; //拼接加\n返回的类目项
             let maxLength = 3; //每项显示文字个数
             let rowNumber = Math.ceil(value.length / maxLength); //类目项需要换行的行数
@@ -154,7 +116,7 @@ let Index = {
           show: true,
           lineStyle: {
             // x轴分割线样式
-            color: ['#e5e5e5'],
+            color: ['#e7e7e7'],
             type: 'solid' //分割线类型
           }
         },
@@ -169,12 +131,12 @@ let Index = {
             //y轴分割线
             show: true,
             lineStyle: {
-              color: ['#e5e5e5'],
+              color: ['#e7e7e7'],
               type: 'solid' //分割线类型
             }
           },
           axisLabel: {
-            formatter: '{value}%' //TODO：柱形图百分比显示
+            formatter: '{value}%' //TODO：柱形图刻度百分比显示
           }
         }
       ],
@@ -191,6 +153,7 @@ let Index = {
           tooltip: {
             trigger: 'item',
             formatter: function(p) {
+              console.log(p, '');
               // TODO:提示显示
               let fdf = [
                 '错误量：' + p.data.rateValue + '<br>',
@@ -212,7 +175,7 @@ let Index = {
                 // 渐变色显示
                 {
                   offset: 0,
-                  color: '#49c4d9'
+                  color: '#83d9e4'
                 },
                 {
                   offset: 1,
@@ -229,3 +192,4 @@ let Index = {
   }
 };
 Index.init();
+
