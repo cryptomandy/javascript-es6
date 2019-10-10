@@ -1,0 +1,15 @@
+body,
+html,
+#allmap {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  font-family: '微软雅黑';
+}
+body {
+  margin: 20px 0 0 20px;
+}
+#mapBox {
+  height: calc(100% - 30px);
+  width: 100%;
+}
