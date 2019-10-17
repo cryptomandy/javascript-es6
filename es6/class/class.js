@@ -91,27 +91,27 @@ var testClose1 = {
     };
   }
 };
-console.log(testClose1.getName()(), '001');
+console.log(testClose1.getName(), '001');
 
-var testClose2 = {
-  x: 'aaa',
-  getName: function() {
-    console.log(x);
-    var x = 'ccc';
-    return () => {
-      console.log(x);
-    };
-  }
-};
-console.log(testClose2.getName()(), '002');
+// var testClose2 = {
+//   x: 'aaa',
+//   getName: function() {
+//     console.log(x);
+//     var x = 'ccc';
+//     return () => {
+//       console.log(x);
+//     };
+//   }
+// };
+// console.log(testClose2.getName()(), '002');
 
-var testClose3 = {
-  x: 'aaa',
-  getName: () => {
-    console.log(this.x);
-    return () => {
-      console.log(this.x);
-    };
-  }
-};
-console.log(testClose3.getName()(), '003');
+// var testClose3 = {
+//   x: 'aaa',
+//   getName: () => {
+//     console.log(this.x);
+//     return () => {
+//       console.log(this.x);
+//     };
+//   }
+// };
+// console.log(testClose3.getName()(), '003');

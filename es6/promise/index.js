@@ -48,3 +48,4 @@ let promise = new Promise(function(resolve, reject) {
 console.log(5);
 
 //  1, 3,5,4,9, 10,11,12, 2,7,8
+
