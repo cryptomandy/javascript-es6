@@ -115,3 +115,4 @@ console.log(testClose1.getName(), '001');
 //   }
 // };
 // console.log(testClose3.getName()(), '003');
+//

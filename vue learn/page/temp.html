@@ -1,56 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>vue的基础语法</title>
-    <link rel="stylesheet" href="../css/temp.css">
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>vue语法和高级使用</title>
+    <link rel="stylesheet" href="../css/temp.css" />
+  </head>
 
-<body>
+  <body>
     <div id="app">
-        <div class="box-1">
-            <!-- 标签内的数据绑定 -->
-            <p>{{name}}</p>
-            <!-- 绑定样式熟悉，用{}括起来 -->
-            <p v-bind:style='{display:isShow ? "none" :""}'>绑定style</p>
-            <p v-bind:class='noShow ? "noShow" :""' >绑定类名</p>
-            <!-- 多个类名，用中括号括起来 -->
-            <p v-bind:class='["infro-class",noShow ? "noShow" :""]'>绑定多个类名</p>  
-            <ul>
-                <!-- 循环列表 v-for -->
-                <li v-for="(item,index) in list" :data-key="item.orgCode">
-                    <!-- if判断 -->
-                    <div v-if='item.orgCode=="100666"'>测试</div>
-                    <div v-else>{{item.orgName}}</div>
-                    
-                </li>
-            </ul>
-        </div>
-        
-
+      <div class="box-1">
+        <!-- 标签内的数据绑定 -->
+        <p>{{ name }}</p>
+        <!-- 绑定样式熟悉，用{}括起来 -->
+        <p v-bind:style='{display:isShow ? "none" :""}'>绑定style</p>
+        <p v-bind:class='noShow ? "noShow" :""'>绑定类名</p>
+        <!-- 多个类名，用中括号括起来 -->
+        <p v-bind:class='["infro-class",noShow ? "noShow" :""]'>绑定多个类名</p>
+        <ul>
+          <!-- 循环列表 v-for -->
+          <li v-for="(item,index) in list" :data-key="item.orgCode">
+            <!-- if判断 -->
+            <div v-if='item.orgCode=="100666"'>测试</div>
+            <div v-else>{{ item.orgName }}</div>
+          </li>
+        </ul>
+      </div>
     </div>
-</body>
-<script src="../js/vue.js"></script>
+  </body>
+  <script src="../js/vue.js"></script>
 
-<script>    
+  <script>
     new Vue({
-        el:"#app",  //vue实例的节点
-        data:{
-            name:"vue的基础语法",
-            isShow:false,
-            noShow: false,
-            list: [
-                {"orgCode":"100666","orgName":"承诺达华北大区","typeCode":0},
-                {"orgCode":"200535","orgName":"承诺达广东省广州市狮岭营业站","typeCode":0},
-                {"orgCode":"200536","orgName":"承诺达广东省广州市朝阳营业站","typeCode":0},
-                {"orgCode":"200534","orgName":"承诺达广东省广州市均禾营业站","typeCode":0},
-                {"orgCode":"200533","orgName":"承诺达广东省广州市天健营业站","typeCode":0}
-            ]
-        },
-        methods:{
-        },
-    })
-</script>
+      el: '#app', //vue实例的节点
+      data: {
+        name: 'vue的基础语法',
+        isShow: false,
+        noShow: false,
+        list: [
+          { orgCode: '100666', orgName: '承诺达华北大区', typeCode: 0 },
+          {
+            orgCode: '200535',
+            orgName: '承诺达广东省广州市狮岭营业站',
+            typeCode: 0
+          },
+          {
+            orgCode: '200536',
+            orgName: '承诺达广东省广州市朝阳营业站',
+            typeCode: 0
+          },
+          {
+            orgCode: '200534',
+            orgName: '承诺达广东省广州市均禾营业站',
+            typeCode: 0
+          },
+          {
+            orgCode: '200533',
+            orgName: '承诺达广东省广州市天健营业站',
+            typeCode: 0
+          }
+        ]
+      },
+      methods: {}
+    });
+  </script>
 </html>

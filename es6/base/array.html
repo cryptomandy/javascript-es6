@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title></title>
+  </head>
+  <body>
+    <iframe src="https://www.baidu.com/" id="testbox" frameborder="0"></iframe>
+  </body>
+</html>
+<script>
+  var index = {};
+  index = {
+    init() {
+      console.log(document.getElementById('testbox'));
+      index.spreadFun1();
+    },
+    //数组扩展运算符...
+    spreadFun1() {
+      // 1. 注意： []...[xx],...[xxx]],将数组转化为逗号分隔的序列，*** 只针对直属子级 ***
+      let a = [1, ...[3, 5, [9, 88]], 8];
+      console.log(a, '001'); //[1,3,5,[9,88],8]
+      let b = [
+          {
+            name: 'aaa'
+          }
+        ],
+        c = [
+          {
+            name: 'bbb'
+          }
+        ];
+      let d = [...b, ...c]; // 复制和合并数组都是浅拷贝
+      console.log(d, '002');
+
+      // console.log([...new Set([9, 99, 34, 23, 99, 34])]);
+
+      //2. 扩展运算符复制数组，和合并数组
+    }
+  };
+  index.init();
+</script>
